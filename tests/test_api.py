@@ -79,6 +79,12 @@ def test_respuesta_valida():
     assert doble.llamadas == 1
 
 
+def test_la_respuesta_incluye_el_plazo_de_atencion():
+    with TestClient(crear_app(DobleCorrecto())) as cliente:
+        datos = cliente.post("/clasificar", json={"texto": "No puedo entrar"}).json()
+    assert datos["sla_horas"] == 24
+
+
 # ------------------------------------------------- caso 2: entrada inválida
 @pytest.mark.parametrize(
     "cuerpo",

@@ -38,7 +38,7 @@ class Clasificacion(BaseModel):
 
 
 # Plazo de atención según la prioridad (novedad de la versión B).
-SLA_HORAS = {"alta": 4, "media": 24}
+SLA_HORAS = {"alta": 4, "media": 24, "baja": 72}
 
 
 class ErrorProveedor(Exception):
